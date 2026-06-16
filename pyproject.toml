@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "steadycron"
+version = "0.1.0"
+description = "Code-monitoring SDK for SteadyCron — wrap your scheduled jobs with @steadycron.job to send start/success/fail pings automatically."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = []  # no runtime dependencies — stdlib only
+
+[project.urls]
+Homepage = "https://steadycron.com"
+Repository = "https://github.com/steadycron/steadycron-python"
+
+[tool.hatch.build.targets.wheel]
+packages = ["steadycron"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.mypy]
+python_version = "3.9"
+strict = true
