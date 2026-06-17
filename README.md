@@ -7,7 +7,10 @@ Wrap your scheduled jobs with `@steadycron.job` and SteadyCron will:
 - Alert you when a job **doesn't run** on time (missed heartbeat)
 - Detect **stuck runs** that start but never finish
 
-The monitor must already exist (created in the Dashboard, via YAML, or Terraform). The SDK never creates monitors.
+The monitor must already exist — create it in the Dashboard, via YAML manifest, or Terraform.
+The SDK never creates monitors. For a fully code-driven workflow, declare the monitor in your
+Terraform configuration or YAML manifest and reference it from your application by key:
+the cron schedule, alert rules, and SDK instrumentation all live in the same repository.
 
 ---
 
