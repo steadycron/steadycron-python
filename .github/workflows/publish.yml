@@ -21,10 +21,10 @@ jobs:
           python-version: '3.12'
 
       - name: Install hatch
-        run: pip install hatch
+        run: pip install hatch pytest
 
       - name: Run tests
-        run: hatch run test
+        run: pip install -e . && pytest
 
       - name: Build package
         run: hatch build
