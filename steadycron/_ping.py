@@ -41,7 +41,12 @@ def send_ping(
         truncated = _truncate_utf8(message, _ERROR_MESSAGE_MAX_BYTES)
         body = truncated.encode("utf-8")
 
+    import steadycron as _mod
+
     req = urllib.request.Request(url, data=body or b"", method="POST")
+    # Default urllib UA ("Python-urllib/3.x") is flagged by some WAFs as a
+    # scraper and blocked with a 403 before reaching the API.
+    req.add_header("User-Agent", f"steadycron-python/{_mod.__version__}")
     if body:
         req.add_header("Content-Type", "text/plain; charset=utf-8")
 

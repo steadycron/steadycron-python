@@ -73,7 +73,15 @@ def resolve_token(key: str) -> str:
     params = urlencode({"key": key})
     url = f"{api_url}/api/monitors/resolve?{params}"
 
-    req = urllib.request.Request(url, headers={"Authorization": f"Bearer {api_key}"})
+    req = urllib.request.Request(
+        url,
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            # Default urllib UA ("Python-urllib/3.x") is flagged by some WAFs as a
+            # scraper and blocked with a 403 before reaching the API.
+            "User-Agent": f"steadycron-python/{_mod.__version__}",
+        },
+    )
     try:
         with urllib.request.urlopen(req) as resp:
             body = json.loads(resp.read().decode())

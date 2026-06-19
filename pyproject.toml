@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "steadycron"
-version = "0.1.0"
+version = "0.1.1"
 description = "Code-monitoring SDK for SteadyCron — wrap your scheduled jobs with @steadycron.job to send start/success/fail pings automatically."
 readme = "README.md"
 license = { text = "MIT" }

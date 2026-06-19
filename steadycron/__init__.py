@@ -15,6 +15,8 @@ from __future__ import annotations
 
 from typing import Optional
 
+__version__ = "0.1.1"
+
 # ── Module-level configuration (set directly or via configure()) ──────────────
 api_key: Optional[str] = None
 api_url: str = "https://api.steadycron.com"
