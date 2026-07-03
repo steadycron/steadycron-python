@@ -4,12 +4,13 @@ build-backend = "hatchling.build"
 
 [project]
 name = "steadycron"
-version = "0.1.1"
-description = "Code-monitoring SDK for SteadyCron — wrap your scheduled jobs with @steadycron.job to send start/success/fail pings automatically."
+version = "0.1.2"
+description = "Code-monitoring SDK for SteadyCron — wrap scheduled jobs with @steadycron.job to send start/success/fail pings, and get alerted on missed or stuck runs."
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.9"
 dependencies = []  # no runtime dependencies — stdlib only
+keywords = ["cron", "monitoring", "heartbeat", "scheduler", "dead-mans-switch", "cronjob"]
 authors = [
   { name = "SteadyCron" }
 ]
@@ -25,12 +26,15 @@ classifiers = [
   "Intended Audience :: Developers",
   "Topic :: Software Development :: Libraries",
   "Topic :: System :: Monitoring",
+  "Operating System :: OS Independent",
 ]
 
 [project.urls]
 Homepage = "https://steadycron.com"
+Documentation = "https://steadycron.com/docs"
 Repository = "https://github.com/steadycron/steadycron-python"
 "Bug Tracker" = "https://github.com/steadycron/steadycron-python/issues"
+Changelog = "https://github.com/steadycron/steadycron-python/releases"
 
 [tool.hatch.build.targets.wheel]
 packages = ["steadycron"]
